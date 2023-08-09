@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postbook sign Up</title>
+    <link rel="icon" href="../Assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="signUp.css">
+</head>
+
+<body>
+    <div class="signupMainPage">
+        <div class="signupPage">
+            <h2 class="mt-2 mb-3">Sign Up</h2>
+            <form action="get" class="signupForm">
+                <div class="signUpBox signUp">
+                    <i class="fa-solid fa-id-badge me-1"></i>
+                    <input type="text" class="form-control" id="firstName" size="25" placeholder="First name"
+                        autocomplete="off">
+                </div>
+                <div class="signUpBox signUp">
+                    <i class="fa-solid fa-image-portrait me-1"></i>
+                    <input type="text" class="form-control" id="lastName" size="25" placeholder="Last name"
+                        autocomplete="off">
+                </div>
+                <div class="signUpBox signUp">
+                    <i class="fa-solid fa-user me-1"></i>
+                    <input type="text" class="form-control" id="userName" size="25" placeholder="Username"
+                        autocomplete="off">
+                </div>
+                <div class="signUpBox signUp">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="number" class="form-control" id="contactNumber" size="25" placeholder="Contact no"
+                        autocomplete="off">
+                </div>
+                <div class="signUpBox signUp">
+                    <i class="fa-solid fa-envelope"></i>
+                    <input type="email" class="form-control" id="email" size="25" placeholder="Email Address"
+                        autocomplete="off">
+                </div>
+                <div class="signupPassword signUp">
+                    <i class="fa-solid fa-lock me-1"></i>
+                    <div class="input-group flex-nowrap">
+                        <input type="password" class="form-control" id="password" placeholder="Password"
+                            aria-label="email" aria-describedby="addon-wrapping" autocomplete="off">
+                        <i class="fa-solid fa-eye input-group-text icon" id="showPassword"></i>
+                    </div>
+                </div>
+            </form>
+
+            <button type="button" class="btn signUpBtn mb-4 mt-4">Sign up</button>
+            <p class="text-center">If you already have an account kindly click
+                <a href="../index.html" class="signInBtn ms-1">
+                    Sign in
+                </a>
+            </p>
+            
+        </div>
+    </div>
+
+
+
+
+    <!-- ----------Bootstrap JS Link----------- -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- ----------Moment JS Link----------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+        integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ----------Sweet Alert JS Link----------- -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ------------Signup JS Link----------- -->
+    <script type="module" src="signUp.js"></script>
+
+</body>
+
+</html>

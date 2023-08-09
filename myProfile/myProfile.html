@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile</title>
+    <link rel="icon" href="../Assets/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+        integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="myProfile.css">
+</head>
+
+<body>
+
+    <!-- =====================NAVBAR START=================== -->
+
+    <div class="container-fluid navPosition">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom pt-0 pb-0">
+            <a class="navbar-brand" href="#">
+                <h1 class="logo">Postbook</h1>
+            </a>
+            <form class="d-flex input-group align-items-center" aria-setsize="20" style="width: 40%">
+                <i class="input-group-text fa-solid fa-magnifying-glass"></i>
+                <input class="form-control ps-0" type="search" placeholder="Search" aria-label="Search" />
+            </form>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2">
+                    <li class="nav-item d-flex align-items-center ms-2">
+                        <a class="nav-link fw-bold d-flex align-items-center flex-column" aria-current="page"
+                            href="../dashboard/dashboard.html">
+                            <i class="fa-solid fa-house"></i>
+                            Home
+                        </a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center ms-2">
+                        <a class="nav-link active fst-italic fw-bold d-flex align-items-center flex-column" href="#">
+                            <i class="fa-solid fa-user"></i>
+                            My Profile
+                        </a>
+                    </li>
+                    <li class="nav-item d-flex align-items-center ms-2">
+                        <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
+                            <i class="fa-solid fa-briefcase"></i>
+                            Jobs
+                        </a>
+                    </li>
+                    <!-- <li class="nav-item d-flex align-items-center ms-2">
+                <a class="nav-link fw-bold d-flex align-items-center flex-column" href="../users/users.html">
+                  <i class="fa-solid fa-user-group"></i>
+                  All Users
+                </a>
+              </li> -->
+                    <li class="nav-item d-flex align-items-center ms-2">
+                        <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
+                            <i class="fa-solid fa-bell"></i>
+                            Notifications
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown d-flex align-items-center flex-column ms-2">
+                        <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle" style="width: 22px"
+                            id="navProfilePic" />
+                        <a class="nav-link dropdown-toggle pb-1 p-0 fw-bold d-flex align-items-center" href="#"
+                            id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Me
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#updateProfile">
+                                    <i class="fa-solid fa-user ms-2 me-1"></i>
+                                    Edit Profile
+                                </a>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider" />
+                            </li>
+                            <li>
+                                <a class="dropdown-item fw-bold" href="#" id="logOut">
+                                    Signout ---
+                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
+    <div class="modal fade" id="updateProfile" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="updateProfileLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <h1 class="editProfile text-center">Edit Profile</h1>
+                <div class="modal-header pb-0">
+                    <div>
+                        <h3 class="modal-title fs-5" id="updateProfileLabel">Salam
+                            <i class="fa-solid fa-handshake"></i>
+                        </h3>
+                        <p class="fs-6">
+                            It's quick and easy
+                        </p>
+                    </div>
+                    <button type="button" class="btn-close me-1 mb-2" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+                <div class="modal-body d-flex flex-column gap-3">
+                    <div class="editFullName">
+                        <input type="text" class="form-control border-bottom border-end border-3" id="editFirstName"
+                            placeholder="First name">
+                        <input type="text" class="form-control border-bottom border-end border-3" id="editSurName"
+                            placeholder="Surname">
+                    </div>
+                    <input type="text" class="form-control border-bottom border-end border-3" id="editUserName"
+                        placeholder="User Name">
+                    <input type="email" class="form-control border-bottom border-end border-3" id="editUserEmail"
+                        placeholder="Email Address">
+                    <input type="text" class="form-control border-bottom border-end border-3" id="editUserMob"
+                        placeholder="Contact No">
+                    <textarea name="description" cols="30" rows="5"
+                        class="form-control border-bottom border-end border-3" id="editUserDescription"
+                        placeholder="Description"></textarea>
+                    <input type="file" accept="image/*" name="image" id="profilePic" class="uploadImage">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="updateBtn" class="btn btn-success px-5 py-2"
+                        data-bs-dismiss="modal">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- =====================NAVBAR END=================== -->
+
+    <div class="container-fluid px-4 mt-3">
+        <div class="row">
+            <div class="col-8">
+                <div>
+                    <img src="../Assets/sunset.jpg" alt="" id="bgImage" class="rounShape">
+                    <div class="ms-3 d-flex align-items-end" id="myProfileBox">
+                        <img src="../Assets/dummy-image.jpg" alt="" id="profileUserPic">
+                        <div class="ms-3">
+                            <h1 id="profileUserFullname">User FullName</h1>
+                            <h3 id="profileUserName">User ProfileName</h3>
+                            <h6 id="profileUserDescription">User Description</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="postArea positionScroll" id="positionScrollPostArea">
+                    <div class="border p-3 mt-2 mb-2" style="border-radius: 10px">
+                      <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                          <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle me-3"
+                            style="width: 50px; height: 50px" />
+                          <div>
+                            <div class="d-flex align-items-center">
+                              <h6 class="bottomMargin me-1" style="font-size: 14px">
+                                Muhammad Ahsan Ayaz
+                              </h6>
+                              <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
+                              <p class="bottomMargin">1st</p>
+                            </div>
+                            <div class="d-flex">
+                              <p class="bottomMargin" style="font-size: 11px">
+                                Google Developer Expert | Software Architect & Head
+                                INstructor-...
+                              </p>
+                            </div>
+                            <div class="d-flex">
+                              <p class="bottomMargin me-1" style="font-size: 11px">
+                                5h
+                              </p>
+                              <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px">
+                                .
+                              </p>
+                              <i class="fa-solid fa-earth-asia align-self-center" style="font-size: 11px"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="align-self-start dropstart">
+                          <a class="nav-link p-0 mt-1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false" style="color: #000000">
+                            <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
+                          </a>
+                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                            <li>
+                              <a class="dropdown-item" href="#" onclick="editPost()">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                                Edit Post
+                              </a>
+                            </li>
+                            <li>
+                              <a class="dropdown-item" href="#" onclick="deletePost()">
+                                <i class="fa-solid fa-trash-can"></i>
+                                Delete Post
+                              </a>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                      <div class="mt-2">
+                        <p class="bottomMargin">
+                          Excited to share that ngx-device-detector
+                          (https://lnkd.in/dVjwsUHF) library also made it to the Google
+                          Dev-Libraries list.
+                        </p>
+                      </div>
+                      <div class="mt-3">
+                        <img src="../Assets/sunset.jpg" alt="" class="sizeImg" />
+                      </div>
+                    </div>
+                  </div>
+            </div>
+            <div class="col-4 border" style="border-radius: 10px;">
+                <!-- =====================ASIDE START=================== -->
+
+                <div class="">
+                    <div class="d-flex justify-content-between mt-3 align-items-center">
+                        <h6 class="bottomMargin">
+                            Users in Postbook
+                        </h6>
+                        <i class="fa-solid fa-circle-info"></i>
+                    </div>
+                    <div class="mt-4 allUsersArea" id="scrollbar1">
+                        <!-- <div class="d-flex align-items-center">
+                            <img src="../Assets/SirSufiyan.jpg" alt="" class="rounded-circle me-3"
+                                style="width: 50px; height: 50px;">
+                            <div>
+                                <div class="d-flex align-items-center">
+                                    <h6 class="bottomMargin me-1" style="font-size: 14px;">Muhammad Sufiyan</h6>
+                                </div>
+                                <div class="d-flex">
+                                    <p class="bottomMargin" style="font-size: 11px;">
+                                        Mern Developer @ Ashtar Global Solutions
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ms-5 mt-3">
+                            <button type="button" class="btn rounded-pill px-4 border">
+                                <i class="fa-solid fa-plus"></i>
+                                Follow
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+
+                <!-- =====================ASIDE END=================== -->
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+    <!-- ----------Bootstrap Link----------- -->
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+
+    <!-- ----------Moment JS Link----------- -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment-with-locales.min.js"
+        integrity="sha512-42PE0rd+wZ2hNXftlM78BSehIGzezNeQuzihiBCvUEB3CVxHvsShF86wBWwQORNxNINlBPuq7rG4WWhNiTVHFg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- ----------Sweet Alert JS Link----------- -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- ----------My Profile JS Link----------- -->
+    <script type="module" src="myProfile.js"></script>
+</body>
+
+</html>

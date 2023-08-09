@@ -1,0 +1,146 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.loginMainPage {
+    display: grid;
+    place-items: center;
+    height: 100vh;
+    background: url(./Assets/blue.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.loginPage {
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    padding: 0 40px;
+    height: 28em;
+    width: 26em;
+    margin: 0 10px;
+    transition: all 0.5s;
+    border: 4px solid #d4c21d;
+}
+
+.loginPage h2 {
+    color: #f7b53c;
+    font-size: 2.5em;
+}
+
+.loginInput {
+    display: grid;
+    gap: 1.5em;
+}
+
+.loginEmail input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #f0da77;
+}
+
+.loginEmail i {
+    font-size: 19px;
+}
+
+.loginPassword i {
+    font-size: 19px;
+}
+
+.loginPassword input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #f0da77;
+}
+
+.login{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #cac3a2;
+    /* margin-bottom: 10px; */
+}
+
+.login:focus-visible {
+    outline: none;
+}
+
+.loginPassword input::placeholder {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.loginPassword input::placeholder:focus {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.loginEmail input::placeholder {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.loginBtn {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid #4cc4f3;
+    color: #eec983;
+    border-radius: 10px;
+    width: 50%;
+    transition: all 0.5s;
+}
+
+.loginBtn:hover {
+    color: #a31a1a;
+    background-color: #4cc4f3;
+}
+
+.createBtn {
+    font-weight: bold;
+    font-size: 18px;
+    color: #28f743;
+    transition: all 0.5s;
+}
+
+.createBtn:hover {
+    color: #f3e520;
+}
+
+.icon {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.form-control:focus {
+    color: #faf60a;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+i, #showPassword {
+    color: #d4c21d;
+}
+
+.loginPage p {
+    color: #d4c21d;
+}
+
+.hidden {
+    display: none;
+}

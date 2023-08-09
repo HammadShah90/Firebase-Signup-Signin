@@ -1,0 +1,191 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    background-color: #4a8ff7;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 22px;
+    color: #f3f5ed;
+    margin: 0;
+}
+
+.fontSize {
+    font-size: 14px;
+}
+
+.form-control {
+    border: none;
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border: none;
+}
+
+.profileImg img {
+    border-radius: 50px;
+    width: 50px;
+}
+
+.profileImg {
+    padding: 0;
+    max-height: 100vh;
+}
+
+.postButton {
+    border: 1px solid #b3b3b3;
+    border-radius: 50px;
+    width: 90%;
+    padding: 10px;
+    text-align: start;
+    font-weight: 500;
+    color: #aaaaaa;
+    transition: 0.5s;
+}
+
+.postButton:hover {
+    background-color: #ebebeb;
+}
+
+.btnHover {
+    border-radius: 10px;
+    padding: 15px;
+    cursor: pointer;
+}
+
+.btnHover:hover {
+    background-color: #ebebeb;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.modal-body textarea {
+    outline: 0px;
+}
+
+.allUsersArea {
+    height: 40vh;
+    overflow-y: auto;
+    /* padding: 0 10px; */
+}
+
+#scrollbar1::-webkit-scrollbar {
+    width: 3px;
+}
+
+#scrollbar1::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #909090;
+    border: 1px solid #aaaaaa;
+}
+
+#scrollbar1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4a8ff7;
+}
+
+
+.postBgImg {
+    background-image: url(../Assets/BGImg.jpg);
+    height: 14%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+#userDashboardDp {
+    display: block;
+    margin: 10px auto;
+    width: 20vw;
+    border-radius: 50%;
+    border: 2px solid #909090;
+    /* position: relative; */
+    /* bottom: 25px; */
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.bottomMargin {
+    margin-bottom: 0;
+}
+
+.editFullName {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.fontSize {
+    font-size: 20px;
+}
+
+.uploadImage{
+    display: block;
+    width: 270px;
+    background: #6da1ef;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.uploadImage:hover{
+    background-color: #4a8ff7;
+}
+
+#inputFile {
+    display: none;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.10em rgba(90, 96, 105, 0.25);
+}
+
+.navPosition {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.scrolling {
+    overflow-y: scroll;
+}
+
+.sizeImg {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    border-radius: 0px;
+    height: 300px;
+}
+
+.positionScroll {
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+#positionScrollPostArea::-webkit-scrollbar {
+    width: 5px;
+}
+
+#positionScrollPostArea::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #909090;
+    border: 1px solid #aaaaaa;
+}
+
+#positionScrollPostArea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4a8ff7;
+}

@@ -1,0 +1,154 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.signupMainPage {
+    display: grid;
+    place-items: center;
+    padding: 50px 0px;
+    height: 100vh;
+    background: url(../Assets/blue.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.signupPage {
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    padding: 0 50px;
+    /* height: 45em; */
+    /* width: 30em; */
+    margin: 0 10px;
+    transition: all 0.5s;
+    border: 4px solid #d4c21d;
+}
+
+.signupPage h2 {
+    color: #f7b53c;
+    font-size: 2.5em;
+}
+
+.signupForm {
+    display: grid;
+    gap: 1.5em;
+}
+
+.signUpBox input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #f0da77;
+}
+
+.signUpBox i {
+    font-size: 19px;
+}
+
+.signupPassword i {
+    font-size: 19px;
+}
+
+.signupPassword input {
+    padding: 10px 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 20px;
+    background-color: transparent;
+    color: #f0da77;
+}
+
+.signUp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 2px solid #cac3a2;
+    /* margin-bottom: 10px; */
+}
+
+.signUp:focus-visible {
+    outline: none;
+}
+
+.signUp input:focus-visible {
+    outline: none;
+}
+
+.signupPassword input::placeholder {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.signupPassword input::placeholder:focus {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.signUpBox input::placeholder {
+    color: #e2dab4;
+    opacity: 0.6;
+}
+
+.signUpBtn {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    border: 3px solid #4cc4f3;
+    color: #eec983;
+    border-radius: 10px;
+    width: 50%;
+    transition: all 0.5s;
+}
+
+.signUpBtn:hover {
+    color: #a31a1a;
+    background-color: #4cc4f3;
+}
+
+
+.signInBtn {
+    font-weight: bold;
+    font-size: 18px;
+    color: #28f743;
+    transition: all 0.5s;
+}
+
+.signInBtn:hover {
+    color: #f3e520;
+}
+
+.icon {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.form-control:focus {
+    color: #faf60a;
+    background-color: transparent;
+    outline: 0;
+    box-shadow: none;
+
+}
+
+i, #showPassword {
+    color: #d4c21d;
+}
+
+.signupPage p {
+    color: #d4c21d;
+}
+
+#hidden {
+    visibility: hidden;
+}
+
+

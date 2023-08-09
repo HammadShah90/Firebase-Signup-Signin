@@ -1,0 +1,117 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    background-color: #4a8ff7;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 22px;
+    color: #f3f5ed;
+    margin: 0;
+}
+
+.fontSize {
+    font-size: 14px;
+}
+
+.form-control {
+    border: none;
+}
+
+.input-group-text {
+    background-color: #ffffff;
+    border: none;
+}
+
+.modal-body textarea {
+    outline: 0px;
+}
+
+.textAlign {
+    text-align: center;
+}
+
+.editFullName {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.fontSize {
+    font-size: 20px;
+}
+
+.uploadImage {
+    display: block;
+    width: 270px;
+    background: #6da1ef;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.uploadImage:hover {
+    background-color: #4a8ff7;
+}
+
+#inputFile {
+    display: none;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 0 0.10em rgba(90, 96, 105, 0.25);
+}
+
+#bgImage {
+    width: 100%;
+    height: 380px;
+}
+
+#myProfileBox {
+    position: relative;
+    bottom: 50px;
+}
+
+#profileUserPic {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid #ffffff;
+}
+
+.navPosition {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.rounShape {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.allUsersArea {
+    max-height: 80vh;
+    overflow-y: auto;
+    /* padding: 0 10px; */
+}
+
+#scrollbar1::-webkit-scrollbar {
+    width: 5px;
+}
+
+#scrollbar1::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #909090;
+    border: 1px solid #aaaaaa;
+}
+
+#scrollbar1::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #4a8ff7;
+}
