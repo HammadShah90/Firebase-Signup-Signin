@@ -26,7 +26,6 @@ const logOutbutton = document.querySelector("#logOut");
 const navProfilePic = document.querySelector("#navProfilePic");
 const followersCount = document.querySelector(".followersCount");
 const followingCount = document.querySelector(".followingCount");
-const mainContainer = document.querySelector(".mainContainer");
 
 // console.log(followersCount);
 // console.log(followingCount);
@@ -263,7 +262,7 @@ async function showPosts(uid) {
 
 async function showAllUsers(email) {
   // console.log(email);
-  // mainContainer.innerHTML = "";
+
   try {
     const q = query(collection(db, "users"), where("userEmail", "!=", email));
     const allUsersArea = document.querySelector(".allUsersArea");
@@ -373,8 +372,6 @@ const followHandler = async (
     }, 1550);
   }
 };
-
-const restartHandler = () => {};
 
 const savingFollowersToOtherUser = async (followingUid, currentUserUid) => {
   console.log(followingUid);
