@@ -140,84 +140,92 @@
     </div>
     <!-- =====================NAVBAR END=================== -->
 
-    <div class="container-fluid px-4 mt-3">
+    <div class="container-fluid px-4 mt-3 mainContainer">
         <div class="row">
             <div class="col-8">
                 <div>
-                    <img src="../Assets/sunset.jpg" alt="" id="bgImage" class="rounShape">
-                    <div class="ms-3 d-flex align-items-end" id="myProfileBox">
-                        <img src="../Assets/dummy-image.jpg" alt="" id="profileUserPic">
-                        <div class="ms-3">
+                    <div class="d-flex align-items-end border" id="myProfileBox" style="border-radius: 10px">
+                        <img src="../Assets/dummy-image.jpg" alt="" id="profileUserPic" class="my-3 ms-3">
+                        <div class="ms-3 userData">
                             <h1 id="profileUserFullname">User FullName</h1>
                             <h3 id="profileUserName">User ProfileName</h3>
                             <h6 id="profileUserDescription">User Description</h6>
+                            <br>
+                            <p class="d-flex justify-content-between">
+                                <b class="fs-5">Followers
+                                    <span class="followersCount"> 0 </span>
+                                </b>
+                                <b class="fs-5">Following
+                                    <span class="followingCount"> 0 </span>
+                                </b>
+                            </p>
                         </div>
                     </div>
                 </div>
                 <div class="postArea positionScroll" id="positionScrollPostArea">
-                    <div class="border p-3 mt-2 mb-2" style="border-radius: 10px">
-                      <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center">
-                          <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle me-3"
-                            style="width: 50px; height: 50px" />
-                          <div>
+                    <!-- <div class="border p-3 mt-2 mb-2" style="border-radius: 10px">
+                        <div class="d-flex align-items-center justify-content-between">
                             <div class="d-flex align-items-center">
-                              <h6 class="bottomMargin me-1" style="font-size: 14px">
-                                Muhammad Ahsan Ayaz
-                              </h6>
-                              <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
-                              <p class="bottomMargin">1st</p>
+                                <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle me-3"
+                                    style="width: 50px; height: 50px" />
+                                <div>
+                                    <div class="d-flex align-items-center">
+                                        <h6 class="bottomMargin me-1" style="font-size: 14px">
+                                            Muhammad Ahsan Ayaz
+                                        </h6>
+                                        <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
+                                        <p class="bottomMargin">1st</p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="bottomMargin" style="font-size: 11px">
+                                            Google Developer Expert | Software Architect & Head
+                                            INstructor-...
+                                        </p>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class="bottomMargin me-1" style="font-size: 11px">
+                                            5h
+                                        </p>
+                                        <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px">
+                                            .
+                                        </p>
+                                        <i class="fa-solid fa-earth-asia align-self-center" style="font-size: 11px"></i>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="d-flex">
-                              <p class="bottomMargin" style="font-size: 11px">
-                                Google Developer Expert | Software Architect & Head
-                                INstructor-...
-                              </p>
+                            <div class="align-self-start dropstart">
+                                <a class="nav-link p-0 mt-1" href="#" id="navbarDropdown" role="button"
+                                    data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000">
+                                    <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                    <li>
+                                        <a class="dropdown-item" href="#" onclick="editPost()">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                            Edit Post
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a class="dropdown-item" href="#" onclick="deletePost()">
+                                            <i class="fa-solid fa-trash-can"></i>
+                                            Delete Post
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="d-flex">
-                              <p class="bottomMargin me-1" style="font-size: 11px">
-                                5h
-                              </p>
-                              <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px">
-                                .
-                              </p>
-                              <i class="fa-solid fa-earth-asia align-self-center" style="font-size: 11px"></i>
-                            </div>
-                          </div>
                         </div>
-                        <div class="align-self-start dropstart">
-                          <a class="nav-link p-0 mt-1" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="color: #000000">
-                            <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
-                          </a>
-                          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <li>
-                              <a class="dropdown-item" href="#" onclick="editPost()">
-                                <i class="fa-solid fa-pen-to-square"></i>
-                                Edit Post
-                              </a>
-                            </li>
-                            <li>
-                              <a class="dropdown-item" href="#" onclick="deletePost()">
-                                <i class="fa-solid fa-trash-can"></i>
-                                Delete Post
-                              </a>
-                            </li>
-                          </ul>
+                        <div class="mt-2">
+                            <p class="bottomMargin">
+                                Excited to share that ngx-device-detector
+                                (https://lnkd.in/dVjwsUHF) library also made it to the Google
+                                Dev-Libraries list.
+                            </p>
                         </div>
-                      </div>
-                      <div class="mt-2">
-                        <p class="bottomMargin">
-                          Excited to share that ngx-device-detector
-                          (https://lnkd.in/dVjwsUHF) library also made it to the Google
-                          Dev-Libraries list.
-                        </p>
-                      </div>
-                      <div class="mt-3">
-                        <img src="../Assets/sunset.jpg" alt="" class="sizeImg" />
-                      </div>
-                    </div>
-                  </div>
+                        <div class="mt-3">
+                            <img src="../Assets/sunset.jpg" alt="" class="sizeImg" />
+                        </div>
+                    </div> -->
+                </div>
             </div>
             <div class="col-4 border" style="border-radius: 10px;">
                 <!-- =====================ASIDE START=================== -->

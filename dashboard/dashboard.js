@@ -11,6 +11,7 @@ import {
   getDocs,
   query,
   onSnapshot,
+  serverTimestamp,
   deleteDoc,
   storage,
   ref,
@@ -78,7 +79,7 @@ onAuthStateChanged(auth, (user) => {
     getUserDataToEditProfile(uid);
     currentLoginUserId = uid;
     showAllUsers(user.email);
-    console.log(currentLoginUserId);
+    // console.log(currentLoginUserId);
   } else {
     window.location.href = `../index.html`;
   }
@@ -172,7 +173,7 @@ const enablePostBtn = () => {
 const postHandler = async () => {
   // console.log(postInputField.value);
 
-  var currentDate = new Date();
+  // var currentDate = new Date();
 
   const file = postImagefile.files[0];
 
@@ -181,8 +182,7 @@ const postHandler = async () => {
   // Create the file metadata
   /** @type {any} */
   const metadata = {
-    contentType: "image/jpeg",
-    contentType: "image/png",
+    contentType: "image/jpeg"
   };
 
   // Upload file and metadata to the object 'images/mountains.jpg'
@@ -232,8 +232,8 @@ const postHandler = async () => {
           const docRef = await addDoc(collection(db, "myPosts"), {
             postContent: postInputField.value,
             postCreatorId: currentLoginUserId,
-            currentTime: currentDate.toLocaleString(),
-            postImageURL: downloadURL,
+            currentTime: serverTimestamp(),
+            postImageUrl: downloadURL,
           });
 
           // console.log(docRef.id);
@@ -253,7 +253,7 @@ const updatePostHandler = () => {
 
   // console.log(updatePostInputField.value);
 
-  var currentDate = new Date();
+  // var currentDate = new Date();
 
   const file = updatePostImagefile.files[0];
 
@@ -312,7 +312,7 @@ const updatePostHandler = () => {
           const updateDocRef = doc(db, "myPosts", postIdGlobal);
           const response = await updateDoc(updateDocRef, {
             postContent: updatePostInputField.value,
-            postImageUrl: downloadURL,
+            postImageUrl: downloadURL
           });
 
           // console.log(docRef.id);
@@ -338,7 +338,7 @@ async function showPosts() {
     // console.log(doc);
     const postId = doc.id;
 
-    const { postContent, postCreatorId, currentTime, postImageURL } =
+    const { postContent, postCreatorId, currentTime, postImageUrl } =
       doc.data();
     // console.log(postContent);
     // console.log(postCreatorId);
@@ -376,7 +376,7 @@ async function showPosts() {
                                     </div>
                                     <div class="d-flex align-items-center">
                                         <p class="bottomMargin me-1" style="font-size: 11px;">${moment(
-                                          currentTime
+                                          currentTime.toDate()
                                         ).fromNow()}</p>
                                         <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px;">.</p>
                                         <i class="fa-solid fa-earth-asia align-self-center"
@@ -416,7 +416,7 @@ async function showPosts() {
                         </div>
                         <div class="mt-3 p-0">
                             <img src=${
-                              postImageURL || "../Assets/sunset.jpg"
+                              postImageUrl || "../Assets/sunset.jpg"
                             } alt="" class="sizeImg" />
                         </div>`;
 
