@@ -35,72 +35,84 @@ const signupShowPassword = document.querySelector("#showPassword")
 
 
 async function signUpHandler() {
-  try {
-    const response = await
-      createUserWithEmailAndPassword(auth, userSignUpEmail.value, userSignUpPassword.value)
-
-    // console.log(response, "===>>> Response SignUP Await");
-
-    const user = response.user
-
-    console.log(user, "===>>> Response User Data");
-
-    if (user) {
-      addUserHandler(user.uid)
-    }
-
-    let timerInterval
+  if (userFirstName.value == "" || userSurName.value == "" || userSignUpName.value == "" || userSignUpEmail.value == "" || userSignUpPassword == "") {
     Swal.fire({
-      title: '<b>Signup Successfully Done</b>',
-      html: 'Please wait <b></b> milliseconds',
-      timer: 3000,
-      timerProgressBar: true,
-      didOpen: () => {
-        Swal.showLoading()
-        const b = Swal.getHtmlContainer().querySelector('b')
-        timerInterval = setInterval(() => {
-          b.textContent = Swal.getTimerLeft()
-        }, 50)
-      },
-      willClose: () => {
-        clearInterval(timerInterval)
-      }
-    }).then((result) => {
-      /* Read more about handling dismissals below */
-      if (result.dismiss === Swal.DismissReason.timer) {
-        console.log('I was closed by the timer')
-      }
+      icon: 'error',
+      title: 'Shabash Bacha Saari Fields fill karo'
     })
-
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // console.log(error);
-    console.log(errorCode);
-    console.log(errorMessage);
-
-
-    if (errorCode) {
-      if (errorCode == "auth/missing-email") {
-        Swal.fire({
-          icon: 'error',
-          title: 'Shabash Bacha Email to likho'
-        })
-      } else if (errorCode == "auth/missing-password") {
-        Swal.fire({
-          icon: 'error',
-          title: 'Shabash Bacha password to likho'
-        })
-      } else if (errorCode == "auth/email-already-in-use") {
-        Swal.fire({
-          icon: 'error',
-          title: 'Shabash Bacha email dusra likho ye already use hai'
-        })
-      } else {
-        return Swal.fire({
-          icon: 'error',
-          title: 'Shabash Bacha Email or password sahi likho'
-        })
+  } else {
+    try {
+      const response = await
+        createUserWithEmailAndPassword(auth, userSignUpEmail.value, userSignUpPassword.value)
+  
+      // console.log(response, "===>>> Response SignUP Await");
+  
+      const user = response.user
+  
+      console.log(user, "===>>> Response User Data");
+  
+      if (user) {
+        addUserHandler(user.uid)
+      }
+  
+      let timerInterval
+      Swal.fire({
+        title: '<b>Signup Successfully Done</b>',
+        html: 'Please wait <b></b> milliseconds',
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: () => {
+          Swal.showLoading()
+          const b = Swal.getHtmlContainer().querySelector('b')
+          timerInterval = setInterval(() => {
+            b.textContent = Swal.getTimerLeft()
+          }, 50)
+        },
+        willClose: () => {
+          clearInterval(timerInterval)
+        }
+      }).then((result) => {
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          console.log('I was closed by the timer')
+        }
+      })
+  
+    } catch (error) {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // console.log(error);
+      console.log(errorCode);
+      console.log(errorMessage);
+  
+  
+      if (errorCode) {
+        if (errorCode == "auth/missing-email") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Shabash Bacha Email to likho'
+          })
+        } else if (errorCode == "auth/missing-password") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Shabash Bacha password to likho'
+          })
+        } else if (errorCode == "auth/email-already-in-use") {
+          Swal.fire({
+            icon: 'error',
+            title: 'Shabash Bacha email dusra likho ye already use hai'
+          })
+        } else if (!userFirstName && !userSurName){
+          Swal.fire({
+            icon: 'error',
+            title: 'Shabash Bacha apna firstName or lastName bhi likho'
+          })
+        } else {
+          return Swal.fire({
+            icon: 'error',
+            title: 'Shabash Bacha Email or password sahi likho'
+          })
+        }
       }
     }
   }

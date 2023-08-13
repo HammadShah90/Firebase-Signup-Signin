@@ -17,6 +17,16 @@
     font-size: 14px;
 }
 
+#postInputField {
+    height: 260px;
+    width: -webkit-fill-available;
+}
+
+#updatePostInputField {
+    height: 260px;
+    width: -webkit-fill-available;
+}
+
 .form-control {
     border: none;
 }

@@ -181,182 +181,233 @@ const enablePostBtn = () => {
 };
 
 const postHandler = async () => {
-  // console.log(postInputField.value);
+  try {
+    if (postInputField.value || postImagefile.files[0]) {
+      const file = postImagefile.files[0];
 
-  // var currentDate = new Date();
+      if (file) {
+        // console.log(file);
 
-  const file = postImagefile.files[0];
+        // Create the file metadata
+        /** @type {any} */
+        const metadata = {
+          contentType: "image/jpeg",
+        };
 
-  // console.log(file);
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        const storageRef = ref(storage, "postImages/" + file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
-  // Create the file metadata
-  /** @type {any} */
-  const metadata = {
-    contentType: "image/jpeg",
-  };
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+            }
+          },
+          (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case "storage/unauthorized":
+                // User doesn't have permission to access the object
+                break;
+              case "storage/canceled":
+                // User canceled the upload
+                break;
 
-  // Upload file and metadata to the object 'images/mountains.jpg'
-  const storageRef = ref(storage, "postImages/" + file.name);
-  const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+              // ...
 
-  // Listen for state changes, errors, and completion of the upload.
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {
-      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log("Upload is " + progress + "% done");
-      switch (snapshot.state) {
-        case "paused":
-          console.log("Upload is paused");
-          break;
-        case "running":
-          console.log("Upload is running");
-          break;
+              case "storage/unknown":
+                // Unknown error occurred, inspect error.serverResponse
+                break;
+            }
+          },
+          () => {
+            // Upload completed successfully, now we can get the download URL
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                console.log("File available at", downloadURL);
+                try {
+                  const docRef = await addDoc(collection(db, "myPosts"), {
+                    postContent: postInputField.value,
+                    postCreatorId: currentLoginUserId,
+                    currentTime: serverTimestamp(),
+                    postImageUrl: downloadURL,
+                  });
+
+                  // console.log(docRef.id);
+
+                  showPosts();
+                  postInputField.value = "";
+                } catch (error) {
+                  console.error("Error adding document: ", error);
+                }
+              }
+            );
+          }
+        );
+      } else {
+        const docRef = addDoc(collection(db, "myPosts"), {
+          postContent: postInputField.value,
+          postCreatorId: currentLoginUserId,
+          currentTime: serverTimestamp(),
+        });
+
+        showPosts();
+        postInputField.value = "";
       }
-    },
-    (error) => {
-      // A full list of error codes is available at
-      // https://firebase.google.com/docs/storage/web/handle-errors
-      switch (error.code) {
-        case "storage/unauthorized":
-          // User doesn't have permission to access the object
-          break;
-        case "storage/canceled":
-          // User canceled the upload
-          break;
-
-        // ...
-
-        case "storage/unknown":
-          // Unknown error occurred, inspect error.serverResponse
-          break;
-      }
-    },
-    () => {
-      // Upload completed successfully, now we can get the download URL
-      getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-        console.log("File available at", downloadURL);
-
-        try {
-          const docRef = await addDoc(collection(db, "myPosts"), {
-            postContent: postInputField.value,
-            postCreatorId: currentLoginUserId,
-            currentTime: serverTimestamp(),
-            postImageUrl: downloadURL,
-          });
-
-          // console.log(docRef.id);
-
-          showPosts();
-          postInputField.value = "";
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }
+    } else {
+      console.log("Shabash Bacha post mai kuch likho to sahi");
+      Swal.fire({
+        icon: "error",
+        title: "Shabash Bacha post mai kuch likho to sahi",
       });
     }
-  );
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+const editPost = (uId) => {
+  console.log(uId);
+  postIdGlobal = uId;
 };
 
 const updatePostHandler = () => {
-  // console.log("update button working properly");
+  try {
+    if (postInputField.value || postImagefile.files[0]) {
+      // console.log("update button working properly");
 
-  // console.log(updatePostInputField.value);
+      // console.log(updatePostInputField.value);
 
-  // var currentDate = new Date();
+      // var currentDate = new Date();
 
-  const file = updatePostImagefile.files[0];
+      const file = updatePostImagefile.files[0];
 
-  // console.log(file);
+      if (file) {
+        // console.log(file);
 
-  // Create the file metadata
-  /** @type {any} */
-  const metadata = {
-    contentType: "image/jpeg",
-  };
+        // Create the file metadata
+        /** @type {any} */
+        const metadata = {
+          contentType: "image/jpeg",
+        };
 
-  // Upload file and metadata to the object 'images/mountains.jpg'
-  const storageRef = ref(storage, "postImages/" + file.name);
-  const uploadTask = uploadBytesResumable(storageRef, file, metadata);
+        // Upload file and metadata to the object 'images/mountains.jpg'
+        const storageRef = ref(storage, "postImages/" + file.name);
+        const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
-  // Listen for state changes, errors, and completion of the upload.
-  uploadTask.on(
-    "state_changed",
-    (snapshot) => {
-      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-      const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log("Upload is " + progress + "% done");
-      switch (snapshot.state) {
-        case "paused":
-          console.log("Upload is paused");
-          break;
-        case "running":
-          console.log("Upload is running");
-          break;
+        // Listen for state changes, errors, and completion of the upload.
+        uploadTask.on(
+          "state_changed",
+          (snapshot) => {
+            // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+            const progress =
+              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            console.log("Upload is " + progress + "% done");
+            switch (snapshot.state) {
+              case "paused":
+                console.log("Upload is paused");
+                break;
+              case "running":
+                console.log("Upload is running");
+                break;
+            }
+          },
+          (error) => {
+            // A full list of error codes is available at
+            // https://firebase.google.com/docs/storage/web/handle-errors
+            switch (error.code) {
+              case "storage/unauthorized":
+                // User doesn't have permission to access the object
+                break;
+              case "storage/canceled":
+                // User canceled the upload
+                break;
+
+              // ...
+
+              case "storage/unknown":
+                // Unknown error occurred, inspect error.serverResponse
+                break;
+            }
+          },
+          () => {
+            // Upload completed successfully, now we can get the download URL
+            getDownloadURL(uploadTask.snapshot.ref).then(
+              async (downloadURL) => {
+                console.log("File available at", downloadURL);
+
+                try {
+                  const updateDocRef = doc(db, "myPosts", postIdGlobal);
+                  const response = await updateDoc(updateDocRef, {
+                    postContent: updatePostInputField.value,
+                    postImageUrl: downloadURL,
+                  });
+
+                  // console.log(docRef.id);
+
+                  showPosts();
+                  updatePostInputField.value = "";
+                } catch (error) {
+                  console.error("Error adding document: ", error);
+                }
+              }
+            );
+          }
+        );
+      } else {
+        const updateDocRef = doc(db, "myPosts", postIdGlobal);
+        const response = updateDoc(updateDocRef, {
+          postContent: updatePostInputField.value,
+        });
+
+        showPosts();
+        postInputField.value = "";
       }
-    },
-    (error) => {
-      // A full list of error codes is available at
-      // https://firebase.google.com/docs/storage/web/handle-errors
-      switch (error.code) {
-        case "storage/unauthorized":
-          // User doesn't have permission to access the object
-          break;
-        case "storage/canceled":
-          // User canceled the upload
-          break;
-
-        // ...
-
-        case "storage/unknown":
-          // Unknown error occurred, inspect error.serverResponse
-          break;
-      }
-    },
-    () => {
-      // Upload completed successfully, now we can get the download URL
-      getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-        console.log("File available at", downloadURL);
-
-        try {
-          const updateDocRef = doc(db, "myPosts", postIdGlobal);
-          const response = await updateDoc(updateDocRef, {
-            postContent: updatePostInputField.value,
-            postImageUrl: downloadURL,
-          });
-
-          // console.log(docRef.id);
-
-          showPosts();
-          updatePostInputField.value = "";
-        } catch (e) {
-          console.error("Error adding document: ", e);
-        }
+    } else {
+      console.log("Shabash Bacha post mai kuch likho to sahi");
+      Swal.fire({
+        icon: "error",
+        title: "Shabash Bacha post mai kuch likho to sahi",
       });
     }
-  );
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 async function showPosts() {
   try {
     postArea.innerHTML = "";
-  
+
     const q = query(collection(db, "myPosts"), orderBy("currentTime", "desc"));
-  
+
     const querySnapshot = await getDocs(q);
-  
+
     querySnapshot.forEach(async (doc) => {
       // console.log(doc);
       const postId = doc.id;
-  
+
       const { postContent, postCreatorId, currentTime, postImageUrl } =
         doc.data();
       // console.log(postContent);
       // console.log(postCreatorId);
       // console.log(currentTime);
-  
+
       const autherDetails = await getAutherData(postCreatorId);
-  
+
       const postElement = document.createElement("div");
       postElement.setAttribute("class", "border p-3 mt-2 mb-2");
       postElement.setAttribute("style", "border-radius: 10px;");
@@ -365,29 +416,29 @@ async function showPosts() {
       <div class="d-flex align-items-center justify-content-between">
                               <div class="d-flex align-items-center">
                                   <img src=${
-                                    autherDetails.profilePic ||
+                                    autherDetails?.profilePic ||
                                     "../Assets/dummy-image.jpg"
                                   } alt="" class="rounded-circle me-3"
                                       style="width: 50px; height: 50px;">
                                   <div>
                                       <div class="d-flex align-items-center">
                                           <h6 class="bottomMargin me-1" style="font-size: 14px;">${
-                                            autherDetails.userFirstName
-                                          } ${autherDetails.userSurName}</h6>
+                                            autherDetails?.userFirstName
+                                          } ${autherDetails?.userSurName}</h6>
                                           <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
                                           <p class="bottomMargin">1st</p>
                                       </div>
                                       <div class="d-flex">
                                           <p class="bottomMargin" style="font-size: 11px;">
                                             ${
-                                              autherDetails.userDescription ||
+                                              autherDetails?.userDescription ||
                                               "No Description Added"
                                             }
                                           </p>
                                       </div>
                                       <div class="d-flex align-items-center">
                                           <p class="bottomMargin me-1" style="font-size: 11px;">${moment(
-                                            currentTime.toDate()
+                                            currentTime?.toDate()
                                           ).fromNow()}</p>
                                           <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px;">.</p>
                                           <i class="fa-solid fa-earth-asia align-self-center"
@@ -426,11 +477,9 @@ async function showPosts() {
                               </p>
                           </div>
                           <div class="mt-3 p-0">
-                              <img src=${
-                                postImageUrl || "../Assets/sunset.jpg"
-                              } alt="" class="sizeImg" />
+                              <img src=${postImageUrl} alt="" class="sizeImg" />
                           </div>`;
-  
+
       postElement.innerHTML = contentOfPost;
       // console.log(postElement);
       postArea.appendChild(postElement);
@@ -452,11 +501,6 @@ async function getAutherData(authorUid) {
     console.log("No such document!");
   }
 }
-
-const editPost = (uId) => {
-  console.log(uId);
-  postIdGlobal = uId;
-};
 
 const deletePost = async (uId) => {
   console.log(uId);
@@ -537,18 +581,16 @@ const updateProfileHandler = () => {
       () => {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.snapshot.ref).then(async (downloadURL) => {
-          // console.log("File available at", downloadURL);
+          console.log("File available at", downloadURL);
           try {
-            await setDoc(doc(db, "users", currentLoginUserId), {
-              userFirstName: editFirstName.value,
-              userSurName: editSurName.value,
-              userName: editUserName.value,
-              userEmail: editUserEmail.value,
+            const updateUserProfile = doc(db, "users", currentLoginUserId);
+            const response = await updateDoc(updateUserProfile, {
               userContactNumber: editUserMob.value,
               userDescription: editUserDescription.value,
               profilePic: downloadURL,
-              userId: currentLoginUserId,
             });
+
+            showPosts();
           } catch (error) {
             console.log(error);
           }
