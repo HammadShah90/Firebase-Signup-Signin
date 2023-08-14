@@ -19,166 +19,163 @@
 
   <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom pt-0 pb-0">
     <div class="container-fluid navPosition">
-        <a class="navbar-brand" href="#">
-            <h1 class="logo">Postbook</h1>
-        </a>
-        <!-- <form class="d-flex input-group align-items-center" aria-setsize="20" style="width: 40%">
+      <a class="navbar-brand" href="#">
+        <h1 class="logo">Postbook</h1>
+      </a>
+      <!-- <form class="d-flex input-group align-items-center" aria-setsize="20" style="width: 40%">
             <i class="input-group-text fa-solid fa-magnifying-glass"></i>
             <input class="form-control ps-0" type="search" placeholder="Search" aria-label="Search" />
         </form> -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span>
-                <i class="fa-solid fa-bars active fs-3"></i>
-            </span>
-        </button>
-        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
-            <div class="offcanvas-header">
-                <a class="navbar-brand" href="#">
-                    <h1 class="logo">Postbook</h1>
-                </a>
-                <span>
-                    <i type="button" class="fa-solid fa-xmark closeBtn me-3 fs-2" data-bs-dismiss="offcanvas"
-                        aria-label="Close">
-                    </i>
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span>
+          <i class="fa-solid fa-bars active fs-3"></i>
+        </span>
+      </button>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample"
+        aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas-header">
+          <a class="navbar-brand" href="#">
+            <h1 class="logo">Postbook</h1>
+          </a>
+          <span>
+            <i type="button" class="fa-solid fa-xmark closeBtn me-3 fs-2" data-bs-dismiss="offcanvas"
+              aria-label="Close">
+            </i>
+          </span>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
+            <li class="nav-item d-flex align-items-center ms-2 moving">
+              <a class="nav-link active fst-italic fw-bold d-flex align-items-center fs-4" aria-current="page"
+                href="#">
+                <i class="fa-solid fa-house"></i>
+                <span class="ms-2">
+                  Home
                 </span>
-            </div>
-            <div class="offcanvas-body">
-                <ul class="navbar-nav mb-2 mb-lg-0 gap-3">
-                    <li class="nav-item d-flex align-items-center ms-2 moving">
-                        <a class="nav-link active fst-italic fw-bold d-flex align-items-center fs-4" aria-current="page"
-                            href="../dashboard/dashboard.html">
-                            <i class="fa-solid fa-house"></i>
-                            <span class="ms-2">
-                                Home
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center ms-2 moving">
-                        <a class="nav-link fw-bold d-flex align-items-center fs-4" href="#">
-                            <i class="fa-solid fa-user"></i>
-                            <span class="ms-2">
-                                My Profile
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item d-flex align-items-center ms-2 moving">
-                        <a class="nav-link fw-bold d-flex align-items-center fs-4" href="#">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <span class="ms-2">
-                                Jobs
-                            </span>
-                        </a>
-                    </li>
-                    <!-- <li class="nav-item d-flex align-items-center ms-2">
+              </a>
+            </li>
+            <li class="nav-item d-flex align-items-center ms-2 moving">
+              <a class="nav-link fw-bold d-flex align-items-center fs-4" href="../myProfile/myProfile.html">
+                <i class="fa-solid fa-user"></i>
+                <span class="ms-2">
+                  My Profile
+                </span>
+              </a>
+            </li>
+            <li class="nav-item d-flex align-items-center ms-2 moving">
+              <a class="nav-link fw-bold d-flex align-items-center fs-4" href="#">
+                <i class="fa-solid fa-briefcase"></i>
+                <span class="ms-2">
+                  Jobs
+                </span>
+              </a>
+            </li>
+            <!-- <li class="nav-item d-flex align-items-center ms-2">
             <a class="nav-link fw-bold d-flex align-items-center flex-column" href="../users/users.html">
               <i class="fa-solid fa-user-group"></i>
               All Users
             </a>
           </li> -->
-                    <li class="nav-item d-flex align-items-center ms-2 moving">
-                        <a class="nav-link fw-bold d-flex align-items-center fs-4" href="#">
-                            <i class="fa-solid fa-bell"></i>
-                            <span class="ms-2">
-                                Notifications
-                            </span>
-                        </a>
-                    </li>
-                    <li class="nav-item btn-group dropend d-flex align-items-start ms-2 moving">
-                        <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle" style="width: 32px"
-                            id="navProfilePic" />
-                        <a class="nav-link dropdown-toggle p-0 fw-bold d-flex align-items-center fs-4" href="#"
-                            type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span class="ms-2 me-1">
-                                Me
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu ms-2">
-                            <li>
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#updateProfile">
-                                    <i class="fa-solid fa-user ms-2 me-1"></i>
-                                    Edit Profile
-                                </a>
-                            </li>
-                            <li>
-                                <hr class="dropdown-divider" />
-                            </li>
-                            <li>
-                                <a class="dropdown-item fw-bold" href="#" id="logOut">
-                                    Signout ---
-                                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
+            <li class="nav-item d-flex align-items-center ms-2 moving">
+              <a class="nav-link fw-bold d-flex align-items-center fs-4" href="#">
+                <i class="fa-solid fa-bell"></i>
+                <span class="ms-2">
+                  Notifications
+                </span>
+              </a>
+            </li>
+            <li class="nav-item btn-group dropend d-flex align-items-start ms-2 moving">
+              <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle" style="width: 32px"
+                id="navProfilePic" />
+              <a class="nav-link dropdown-toggle p-0 fw-bold d-flex align-items-center fs-4" href="#" type="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="ms-2 me-1">
+                  Me
+                </span>
+              </a>
+              <ul class="dropdown-menu ms-2">
+                <li>
+                  <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#updateProfile">
+                    <i class="fa-solid fa-user ms-2 me-1"></i>
+                    Edit Profile
+                  </a>
+                </li>
+                <li>
+                  <hr class="dropdown-divider" />
+                </li>
+                <li>
+                  <a class="dropdown-item fw-bold" href="#" id="logOut">
+                    Signout ---
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2 ms-auto">
-                <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="nav-link active fst-italic fw-bold d-flex align-items-center flex-column" aria-current="page"
-                        href="../dashboard/dashboard.html">
-                        <i class="fa-solid fa-house"></i>
-                        Home
-                    </a>
-                </li>
-                <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
-                        <i class="fa-solid fa-user"></i>
-                        My Profile
-                    </a>
-                </li>
-                <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
-                        <i class="fa-solid fa-briefcase"></i>
-                        Jobs
-                    </a>
-                </li>
-                <!-- <li class="nav-item d-flex align-items-center ms-2">
+      </div>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mb-2 mb-lg-0 d-flex align-items-center gap-2 ms-auto">
+          <li class="nav-item d-flex align-items-center ms-2">
+            <a class="nav-link active fst-italic fw-bold d-flex align-items-center flex-column" aria-current="page"
+              href="#">
+              <i class="fa-solid fa-house"></i>
+              Home
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <a class="nav-link fw-bold d-flex align-items-center flex-column" href="../myProfile/myProfile.html">
+              <i class="fa-solid fa-user"></i>
+              My Profile
+            </a>
+          </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
+              <i class="fa-solid fa-briefcase"></i>
+              Jobs
+            </a>
+          </li>
+          <!-- <li class="nav-item d-flex align-items-center ms-2">
         <a class="nav-link fw-bold d-flex align-items-center flex-column" href="../users/users.html">
           <i class="fa-solid fa-user-group"></i>
           All Users
         </a>
       </li> -->
-                <li class="nav-item d-flex align-items-center ms-2">
-                    <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
-                        <i class="fa-solid fa-bell"></i>
-                        Notifications
-                    </a>
-                </li>
-                <li class="nav-item dropdown d-flex align-items-center flex-column ms-2">
-                    <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle" style="width: 22px"
-                        id="navProfilePic" />
-                    <a class="nav-link dropdown-toggle pb-1 p-0 fw-bold d-flex align-items-center" href="#"
-                        id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Me
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li>
-                            <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                data-bs-target="#updateProfile">
-                                <i class="fa-solid fa-user ms-2 me-1"></i>
-                                Edit Profile
-                            </a>
-                        </li>
-                        <li>
-                            <hr class="dropdown-divider" />
-                        </li>
-                        <li>
-                            <a class="dropdown-item fw-bold" href="#" id="logOut">
-                                Signout ---
-                                <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+          <li class="nav-item d-flex align-items-center ms-2">
+            <a class="nav-link fw-bold d-flex align-items-center flex-column" href="#">
+              <i class="fa-solid fa-bell"></i>
+              Notifications
+            </a>
+          </li>
+          <li class="nav-item dropdown d-flex align-items-center flex-column ms-2">
+            <img src="../Assets/dummy-image.jpg" alt="" class="rounded-circle" style="width: 22px" id="navProfilePic" />
+            <a class="nav-link dropdown-toggle pb-1 p-0 fw-bold d-flex align-items-center" href="#" id="navbarDropdown"
+              role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Me
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <li>
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#updateProfile">
+                  <i class="fa-solid fa-user ms-2 me-1"></i>
+                  Edit Profile
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider" />
+              </li>
+              <li>
+                <a class="dropdown-item fw-bold" href="#" id="logOut">
+                  Signout ---
+                  <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </a>
+              </li>
             </ul>
-        </div>
+          </li>
+        </ul>
+      </div>
     </div>
-</nav>
+  </nav>
 
   <div class="modal fade" id="updateProfile" data-bs-keyboard="false" tabindex="-1" aria-labelledby="updateProfileLabel"
     aria-hidden="true">
@@ -225,10 +222,10 @@
   <!-- =====================MAINPAGE START=================== -->
 
   <div class="container-fluid px-4">
-    <div class="row mt-2">
+    <div class="row mt-2 displayChange">
       <!-- =====================SIDEBAR START=================== -->
 
-      <div class="col-sm-3 border" style="border-radius: 10px">
+      <div class="col-3 border" style="border-radius: 10px">
         <div class="">
           <div class="postBgImg"></div>
           <img src="../Assets/dummy-image.jpg" alt="" id="userDashboardDp" />
@@ -290,7 +287,7 @@
 
       <!-- =====================POSTAREA START=================== -->
 
-      <div class="col-sm-9">
+      <div class="col-9">
         <div class="border p-3" style="border-radius: 10px">
           <div class="profileImg d-flex align-items-center">
             <img src="../Assets/dummy-image.jpg" alt="" id="postProfilePic" />
@@ -320,8 +317,8 @@
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                  <textarea name="comments" class="border-0" id="postInputField"
-                    style="color: #707070" placeholder="What do you want to talk about?"></textarea>
+                  <textarea name="comments" class="border-0" id="postInputField" style="color: #707070"
+                    placeholder="What do you want to talk about?"></textarea>
                 </div>
                 <div class="d-flex justify-content-evenly align-items-center mx-3 mt-2">
                   <input type="file" accept="image/*" name="image" id="postImagefile" style="display: none" />
@@ -429,8 +426,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <textarea name="comments" class="border-0" id="updatePostInputField"
-                  style="color: #707070" placeholder="What do you want to edit your post ?"></textarea>
+                <textarea name="comments" class="border-0" id="updatePostInputField" style="color: #707070"
+                  placeholder="What do you want to edit your post ?"></textarea>
               </div>
               <div class="d-flex justify-content-evenly align-items-center mx-3 mt-2">
                 <input type="file" accept="image/*" name="image" id="updatePostImagefile" style="display: none" />

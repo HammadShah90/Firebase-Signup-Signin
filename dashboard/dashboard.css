@@ -207,3 +207,13 @@
 .moving:hover{
     transform: translate(15px)
 }
+
+
+
+
+
+/* @media(min-width: 250px) and (max-width: 880px) {
+    .displayChange {
+        flex-direction: column;
+    }
+} */
