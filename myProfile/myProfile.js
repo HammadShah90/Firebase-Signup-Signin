@@ -9,6 +9,7 @@ import {
   where,
   getDocs,
   orderBy,
+  deleteDoc,
   signOut,
   updateDoc,
   arrayUnion,
@@ -61,7 +62,7 @@ async function getUserData(userUid) {
     const docSnap = await getDoc(docRef);
 
     if (docSnap.exists()) {
-      console.log("Document data:", docSnap.data());
+      // console.log("Document data:", docSnap.data());
       const {
         userEmail,
         userFirstName,
@@ -182,40 +183,36 @@ async function showPosts(uid) {
       const contentOfPost = `
       <div class="d-flex align-items-center justify-content-between">
                               <div class="d-flex align-items-center">
-                                  <img src=${
-                                    autherDetails.profilePic ||
-                                    "../Assets/dummy-image.jpg"
-                                  } alt="" class="rounded-circle me-3"
+                                  <img src=${autherDetails.profilePic ||
+        "../Assets/dummy-image.jpg"
+        } alt="" class="rounded-circle me-3"
                                       style="width: 50px; height: 50px;">
                                   <div>
                                       <div class="d-flex align-items-center">
-                                          <h6 class="bottomMargin me-1" style="font-size: 14px;">${
-                                            autherDetails.userFirstName
-                                          } ${autherDetails.userSurName}</h6>
+                                          <h6 class="bottomMargin me-1" style="font-size: 14px;">${autherDetails.userFirstName
+        } ${autherDetails.userSurName}</h6>
                                           <p class="bottomMargin me-1 mb-1 fw-bold">.</p>
                                           <p class="bottomMargin">1st</p>
                                       </div>
                                       <div class="d-flex">
                                           <p class="bottomMargin" style="font-size: 11px;">
-                                            ${
-                                              autherDetails.userDescription ||
-                                              "No Description Added"
-                                            }
+                                            ${autherDetails.userDescription ||
+        "No Description Added"
+        }
                                           </p>
                                       </div>
                                       <div class="d-flex align-items-center">
                                           <p class="bottomMargin me-1" style="font-size: 11px;">${moment(
-                                            currentTime.toDate()
-                                          ).fromNow()}</p>
+          currentTime.toDate()
+        ).fromNow()}</p>
                                           <p class="bottomMargin me-1 mb-1 fw-bold" style="font-size: 11px;">.</p>
                                           <i class="fa-solid fa-earth-asia align-self-center"
                                               style="font-size: 11px;"></i>
                                       </div>
                                   </div>
                               </div>
-                              ${
-                                postCreatorId === currentLoginUserId
-                                  ? `<div class="align-self-start dropstart">
+                              ${postCreatorId === currentLoginUserId
+          ? `<div class="align-self-start dropstart">
                               <a class="nav-link p-0 mt-1" href="#" id="navbarDropdown"
                                   role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
                                   <i class="fa-solid fa-ellipsis-vertical fs-5"></i>
@@ -235,8 +232,8 @@ async function showPosts(uid) {
                                   </li>
                               </ul>
                           </div>`
-                                  : ""
-                              }
+          : ""
+        }
                           </div>
                           <div class="mt-2">
                               <p class="bottomMargin">
@@ -244,9 +241,7 @@ async function showPosts(uid) {
                               </p>
                           </div>
                           <div class="mt-3 p-0">
-                              <img src=${
-                                postImageUrl || "../Assets/sunset.jpg"
-                              } alt="" class="sizeImg" />
+                              <img src=${postImageUrl} alt="" class="sizeImg" />
                           </div>`;
 
       postElement.innerHTML = contentOfPost;
@@ -257,6 +252,32 @@ async function showPosts(uid) {
     console.log(error);
   }
 }
+
+
+// ===========>>>>>>>>Delete Current User Posts <<<<<<<<=========
+
+const deletePost = async (uId) => {
+  // console.log(uId);
+  try {
+    if (uId) {
+      await deleteDoc(doc(db, "myPosts", uId));
+      console.log("Deleted Successfully");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: `You have Deleted post Successfully`,
+        showConfirmButton: false,
+        timer: 1500,
+      });
+      const dPost = document.getElementById(uId);
+      dPost.remove();
+    } else {
+      console.log("you are not able to delete this post");
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // ===========>>>>>>>> Show All Users Connect with Postbook <<<<<<<<=========
 
@@ -304,8 +325,7 @@ async function showAllUsers(email) {
         </div>
       </div>
       <div class="ms-5 mt-2">
-        <button type="button" class="btn rounded-pill px-3 border" onclick="followHandler('${
-          doc.id
+        <button type="button" class="btn rounded-pill px-3 border" onclick="followHandler('${doc.id
         }', '${userFirstName}', '${userSurName}', '${userName}')">
           ${followers?.includes(currentLoginUserId) ? '<i class="fa-solid fa-minus"></i>' : '<i class="fa-solid fa-plus"></i>'}
           ${followers?.includes(currentLoginUserId) ? "Unfollow" : "Follow"}
@@ -403,5 +423,5 @@ const logoutHandler = async () => {
 logOutbutton.addEventListener("click", logoutHandler);
 
 // window.editPost = editPost;
-// window.deletePost = deletePost;
+window.deletePost = deletePost;
 window.followHandler = followHandler;

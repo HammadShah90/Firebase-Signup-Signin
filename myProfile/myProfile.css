@@ -13,6 +13,10 @@
     margin: 0;
 }
 
+#navbarSupportedContent {
+    align-self: center;
+}
+
 .bottomMargin {
     margin-bottom: 0;
 }
@@ -137,3 +141,12 @@
     border-radius: 10px;
     background-color: #4a8ff7;
 }
+
+.moving{
+    transition: all 0.5s;
+}
+
+.moving:hover{
+    transform: translate(15px)
+}
+
